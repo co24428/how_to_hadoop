@@ -1,8 +1,8 @@
 # how_to_hadoop
 
-# Hadoop
-<hr>
-## 기본 특성
+# Hadoop  
+
+## 기본 특성  
 - 마스터 ( name node ), 슬레이브 ( Datanode )
 - 1기가를 한번에 vs 1/n으로 나눠서  
   => 속도면에서 후자가 앞설 수밖에 없다
@@ -18,6 +18,7 @@
 - 모든 슬레이브 노드와 연결되고 총괄하는 부분
 - 고장날 경우, 세컨더리네임노드로 이어지도록 구성 => 예방책
 <hr>
+
 # 스파크
 
 ## 기본 특성
@@ -28,6 +29,7 @@
 - **하둡과 스파크**는 같이 움직인다.
 
 <hr>
+
 # Hadoop download in Windows
 
 1. jdk check => 1.8.~~
@@ -60,9 +62,12 @@
           set PATH=%PATH%;%HADOOP_PREFIX%\bin;%HADOOP_PREFIX%\sbin  
     1. core-site.xml
         - configuration 태그에 추가    
-          '''
-              <configuration>
-              <property>
+      ```html
+      
+      ```
+        
+          '''html
+              <configuration> <property>
                   <name>fs.default.name</name>
                   <value>hdfs://0.0.0.0:9000</value>
                 </property>
@@ -72,10 +77,15 @@
                 </property>
               </configuration>
           '''
+          
         - tmp 폴더 생성
     1. hdfs-site.xml
-        - configuration 태그에 추가    
-          '''
+        - configuration 태그에 추가   
+        
+      ```html
+      
+      ```
+          '''html
                 <configuration>
                   <property>
                     <name>dfs.replication</name>
@@ -95,11 +105,16 @@
                   </property>
                 </configuration>
           '''
+          
         - namenode / datanode 폴더 생성
         - 상단의 replication => 데이터가 깨질 때를 대비해서 복제하는것  
           => 여기서는 가분산 모드, 1개만 쓴다.
     1. mapred-site.xml
         - configuration 태그에 추가    
+        
+      ```html
+      
+      ```
           '''
                 <configuration>
                   <property>
@@ -114,7 +129,11 @@
           '''
     1. yarn-site.xml
         - configuration 태그에 추가    
-          '''
+          '''        
+      ```html
+      
+      ```
+        '''html
                 <configuration>
                 <!-- Site specific YARN configuration properties -->
                   <property>
@@ -143,7 +162,11 @@
         - 얘는 원래 나열되어야 함.
         - 여기서는 가분산모드이기 때문에 1개만 있다!!  
           => localhost
-            '''
+                  
+      ```html
+      
+      ```
+            '''html
                 localhost
                 192.168.0.43 datanaode1
             '''  
@@ -153,7 +176,11 @@
     1. start-dfs.cmd
     1. start-yarn.cmd
     1.jps  
-        '''
+            
+      ```html
+      
+      ```
+        '''html
             14980 NodeManager
             8132 DataNode
             2024 NameNode
@@ -167,8 +194,11 @@
     1. stop-dfs.cmd
 
 <hr>
+
 # tutirial => after install
+
 <hr>
+
 ### 시작하기 전에 하둡 켜야 한다!
 - hdfs dfs -[리눅스 명령]
     - hdfs dfs -mkdir /airline

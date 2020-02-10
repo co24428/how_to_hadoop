@@ -208,7 +208,7 @@
 - hadoop mapreduce example
     - WordCount.jar => 맵리듀스로 워드카운트가 java로 코딩된 파일
     - 1번 파라미터를 사용해서 2번 파라미터에 반환  
-      => hadoop jar WordCount.jar /speech/ /output/word_count
+      => hadoop jar WordCount.jar /speech/ /output/word_count  
     - 체크  
       => hdfs dfs -head /output/word_count/part-r-00000  
       => hdfs dfs -cat /output/word_count/part-r-00000

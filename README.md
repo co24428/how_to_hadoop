@@ -62,114 +62,114 @@
           set PATH=%PATH%;%HADOOP_PREFIX%\bin;%HADOOP_PREFIX%\sbin  
     1. core-site.xml
         - configuration 태그에 추가    
-      ```html
-      
-      ```
-        
-          '''html
-              <configuration> <property>
-                  <name>fs.default.name</name>
-                  <value>hdfs://0.0.0.0:9000</value>
-                </property>
-                <property>
-                <name>hadoop.tmp.dir</name>
-                  <value>/c:/bigdata/hadoop-3.1.2/tmp</value>
-                </property>
-              </configuration>
-          '''
+        ```html
+
+        ```
+
+            '''html
+                <configuration> <property>
+                    <name>fs.default.name</name>
+                    <value>hdfs://0.0.0.0:9000</value>
+                  </property>
+                  <property>
+                  <name>hadoop.tmp.dir</name>
+                    <value>/c:/bigdata/hadoop-3.1.2/tmp</value>
+                  </property>
+                </configuration>
+            '''
           
         - tmp 폴더 생성
     1. hdfs-site.xml
         - configuration 태그에 추가   
         
-      ```html
-      
-      ```
-          '''html
-                <configuration>
-                  <property>
-                    <name>dfs.replication</name>
-                    <value>1</value>
-                  </property>
-                  <property>
-                    <name>dfs.permissions</name>
-                    <value>false</value>
-                  </property>
-                  <property>
-                    <name>dfs.namenode.name.dir</name>
-                    <value>/c:/bigdata/hadoop-3.1.2/namenode</value>
-                  </property>
-                  <property>
-                    <name>dfs.datanode.data.dir</name>
-                    <value>/c:/bigdata/hadoop-3.1.2/datanode</value>
-                  </property>
-                </configuration>
-          '''
+        ```html
+
+        ```
+            '''html
+                  <configuration>
+                    <property>
+                      <name>dfs.replication</name>
+                      <value>1</value>
+                    </property>
+                    <property>
+                      <name>dfs.permissions</name>
+                      <value>false</value>
+                    </property>
+                    <property>
+                      <name>dfs.namenode.name.dir</name>
+                      <value>/c:/bigdata/hadoop-3.1.2/namenode</value>
+                    </property>
+                    <property>
+                      <name>dfs.datanode.data.dir</name>
+                      <value>/c:/bigdata/hadoop-3.1.2/datanode</value>
+                    </property>
+                  </configuration>
+            '''
           
         - namenode / datanode 폴더 생성
         - 상단의 replication => 데이터가 깨질 때를 대비해서 복제하는것  
           => 여기서는 가분산 모드, 1개만 쓴다.
     1. mapred-site.xml
         - configuration 태그에 추가    
-        
-      ```html
-      
-      ```
-          '''
-                <configuration>
-                  <property>
-                    <name>mapreduce.framework.name</name>
-                    <value>yarn</value>
-                  </property>
-                  <property>
-                    <name>mapred.job.tracker</name>
-                    <value>0.0.0.0:9001</value>
-                  </property>
-                </configuration>
-          '''
+
+        ```html
+
+        ```
+            '''
+                  <configuration>
+                    <property>
+                      <name>mapreduce.framework.name</name>
+                      <value>yarn</value>
+                    </property>
+                    <property>
+                      <name>mapred.job.tracker</name>
+                      <value>0.0.0.0:9001</value>
+                    </property>
+                  </configuration>
+            '''
     1. yarn-site.xml
         - configuration 태그에 추가    
           '''        
-      ```html
-      
-      ```
-        '''html
-                <configuration>
-                <!-- Site specific YARN configuration properties -->
-                  <property>
-                    <name>yarn.nodemanager.aux-services</name>
-                    <value>mapreduce_shuffle</value>
-                  </property>
-                  <property>
-                    <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
-                    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
-                  </property>
-                  <property>
-                    <name>yarn.log-aggregation-enable</name>
-                    <value>true</value>
-                  </property>
-                  <property>
-                    <name>yarn.nodemanager.pmem-check-enabled</name>
-                    <value>false</value>
-                  </property>
-                  <property>
-                    <name>yarn.nodemanager.vmem-check-enabled</name>
-                    <value>false</value>
-                  </property>
-                </configuration>
-          '''
+        ```html
+
+        ```
+            '''html
+                    <configuration>
+                    <!-- Site specific YARN configuration properties -->
+                      <property>
+                        <name>yarn.nodemanager.aux-services</name>
+                        <value>mapreduce_shuffle</value>
+                      </property>
+                      <property>
+                        <name>yarn.nodemanager.aux-services.mapreduce_shuffle.class</name>
+                        <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+                      </property>
+                      <property>
+                        <name>yarn.log-aggregation-enable</name>
+                        <value>true</value>
+                      </property>
+                      <property>
+                        <name>yarn.nodemanager.pmem-check-enabled</name>
+                        <value>false</value>
+                      </property>
+                      <property>
+                        <name>yarn.nodemanager.vmem-check-enabled</name>
+                        <value>false</value>
+                      </property>
+                    </configuration>
+              '''
     1. workers ( or slaves -> 버전에 따라 다름 )
         - 얘는 원래 나열되어야 함.
         - 여기서는 가분산모드이기 때문에 1개만 있다!!  
           => localhost
                   
-      ```html
-      
-      ```
-            '''html
-                localhost
-                192.168.0.43 datanaode1
-            '''  
+        ```html
+
+        ```
+              '''html
+                  localhost
+                  192.168.0.43 datanaode1
+              '''  
 1. cmd prompt ( **관리자 권한!** )
     1. hdfs namenode -format
         - Storage directory C:\bigdata\hadoop-3.1.2\namenode has been successfully formatted.
@@ -177,16 +177,16 @@
     1. start-yarn.cmd
     1.jps  
             
-      ```html
-      
-      ```
-        '''html
-            14980 NodeManager
-            8132 DataNode
-            2024 NameNode
-            6968 Jps
-            10332 ResourceManager
-        '''
+          ```html
+
+          ```
+            '''html
+                14980 NodeManager
+                8132 DataNode
+                2024 NameNode
+                6968 Jps
+                10332 ResourceManager
+            '''
         - 5개가 나와야 한다.
     1. localhost:9870/  
       => 제대로 뜨면 성공적!!

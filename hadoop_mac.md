@@ -1,8 +1,8 @@
 # HOW_TO_HADOOP_IN_MACOS
 
-1. jdk check
+1. **jdk check**
   - Mac의 Java jdk 경로  
-    /Library/Java/JavaVirtualMachines/
+    /Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk  
   - Mac의 jdk bin 경로  
     /Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home  
 
@@ -22,11 +22,17 @@
     1. 환경변수 체크  
       => echo $PATH
     
-2. hadoop install
+2. **hadoop install**
   - <a> https://hadoop.apache.org/releases.html</a>  
       ~~~
-        export HADOOP_HOME=/Users/kimyihwan/bigdata/hadoop-3.2.1
+        export HADOOP_HOME=/Users/[user]/bigdata/hadoop-3.2.1
         export PATH=${PATH}:$HADOOP_HOME/bin
         export PATH=${PATH}:$HADOOP_HOME/sbin  
       ~~~
   - 위에서처럼 환경변수 설정
+
+3. **setting** ( etc > hadoop > ...)
+  1. haddop-env.sh
+    - 
+    
+
